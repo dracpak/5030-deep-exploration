@@ -27,8 +27,8 @@ class DBConnector:
 			if cur:
 				cur.close()
 				
-		salt = result[:4]
-		passwordHash = result[4:]
+		salt = result[:32]
+		passwordHash = result[32:]
 		if (hashlib.sha256((salt+password).encode()).hexdigest() == passwordHash):
 			return {'result': 'success'}
 		else:
@@ -38,7 +38,7 @@ class DBConnector:
 		
 		username = newUser['username']
 		email = newUser['email']
-		salt = secrets.token_hex(2)
+		salt = secrets.token_hex(16)
 		password = salt+hashlib.sha256((salt+newUser['password']).encode()).hexdigest()
 		try:
 			with self.connection.cursor() as cur:
