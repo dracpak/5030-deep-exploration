@@ -2,14 +2,22 @@ import psycopg2
 import psycopg2.extras
 import hashlib
 import secrets
+import loader
 
 class DBConnector:
    
 	def __init__(self):
+		print("Loading .env")
+		config = loader.loadenv()
+		print("Done!")
 		try:
 			# connecting to the PostgreSQL server
-			self.connection = psycopg2.connect('insert login credentials here')
-			print('Connected to the PostgreSQL server.')
+			self.connection = psycopg2.connect(database=config['database'],
+											user=config['user'],
+											password=config['password'],
+											host=config['host'],
+											port=config['port'])
+			print('Connected to the PostgreSQL server!')
 
 		except (psycopg2.DatabaseError, Exception) as error:
 			print(error)
