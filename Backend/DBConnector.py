@@ -8,7 +8,11 @@ class DBConnector:
 	def __init__(self):
 		try:
 			# connecting to the PostgreSQL server
-			self.connection = psycopg2.connect('insert credentials here')
+			self.connection = psycopg2.connect(database='logos',
+											user='postgres',
+											password='emdeXQqTGjd94Ru',
+											host='logos-5030.c16oggqs01j0.us-east-2.rds.amazonaws.com',
+											port=5432)
 			print('Connected to the PostgreSQL server.')
 
 		except (psycopg2.DatabaseError, Exception) as error:
