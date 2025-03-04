@@ -9,15 +9,15 @@ db = DBConnector()
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-	user = request.get_json()
-	data = db.login(user['username'], user['password'])
-	return jsonify(data), 200
+    user = request.get_json()
+    data = db.login(user['username'], user['password'])
+    return jsonify(data), 200
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
-	newUser = request.get_json()
-	data = db.register(newUser)
-	return jsonify(data), 201
+    newUser = request.get_json()
+    data = db.register(newUser)
+    return jsonify(data), 201
 
 if __name__ == '__main__':
     app.run()
