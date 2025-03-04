@@ -4,7 +4,7 @@ import hashlib
 import secrets
 import loader
 
-class DBConnector:
+class db_connector:
    
     def __init__(self):
         print("Loading .env")
