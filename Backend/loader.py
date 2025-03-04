@@ -1,8 +1,12 @@
+"""
+This is the .env loader for db_connector
+"""
 import os
-from dotenv import load_dotenv, dotenv_values
-
+from dotenv import load_dotenv
 def loadenv():
-    
+    """
+    .env loader function
+    """
     load_dotenv()
     return {
         'database': os.getenv("DATABASE"),
