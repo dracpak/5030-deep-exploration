@@ -1,2 +1,5 @@
 python-dotenv
 flask
+flask-cors
+psycopg2
+pylint
