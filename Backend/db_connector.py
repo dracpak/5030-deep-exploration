@@ -1,13 +1,13 @@
 """
 Main connector to backend database
 """
-import psycopg2
-import psycopg2.extras
 import hashlib
 import secrets
 import loader
+import psycopg2
+import psycopg2.extras
 
-class DBConnector: 
+class DBConnector:
     """
     Singleton class container storing all functions for api calls
     """
@@ -24,7 +24,7 @@ class DBConnector:
                                             port=config['port'])
             print('Connected to the PostgreSQL server!')
 
-        except (psycopg2.DatabaseError, Exception) as error:
+        except psycopg2.DatabaseError as error:
             print(error)
 
     def login(self, username, password):
@@ -36,7 +36,7 @@ class DBConnector:
                 sql = f'SELECT password FROM users WHERE username=\'{username}\''
                 cur.execute(sql)
                 result = cur.fetchone()[0]
-        except Exception:
+        except psycopg2.DatabaseError:
             self.connection.rollback()
             result = None
         finally:
@@ -44,8 +44,8 @@ class DBConnector:
                 cur.close()
 
         salt = result[:32]
-        passwordHash = result[32:]
-        if hashlib.sha256((salt+password).encode()).hexdigest() == passwordHash:
+        password_hash = result[32:]
+        if hashlib.sha256((salt+password).encode()).hexdigest() == password_hash:
             return {'result': 'success'}
         return {'result': 'fail'}
 
@@ -65,7 +65,7 @@ class DBConnector:
                 '''
                 cur.execute(sql)
                 self.connection.commit()
-        except Exception:
+        except psycopg2.DatabaseError:
             self.connection.rollback()
         finally:
             if cur:
