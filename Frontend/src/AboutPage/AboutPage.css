@@ -1,0 +1,15 @@
+/* AboutPage.css */
+
+.about-page {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: transparent; 
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+  
+  .temp {
+    margin-top: 40px;
+    padding: 20px;
+    text-align: center;
+  }
