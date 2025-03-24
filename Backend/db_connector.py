@@ -71,3 +71,49 @@ class DBConnector:
             if cur:
                 cur.close()
         return {'result': 'success'}
+    
+    def get_checkpoint(self, user):
+        """
+        Returns all checkpoints user has
+        """
+        username = user['username']
+        try:
+            with self.connection.cursor() as cur:
+                sql = f'''
+                SELECT checkpoint FROM users
+                WHERE username\'{username}\';
+                '''
+                cur.execute(sql)
+                result = cur.fetchone()[0]
+        except psycopg2.DatabaseError:
+            self.connection.rollback()
+        finally:
+            if cur:
+                cur.close()
+        checkpoints = {}
+        for i in range(4):
+            if result // pow(2, i) % 2 == 1: # left shift by i
+                checkpoints.update({f'C{i}': True})
+                continue
+            checkpoints.update({f'C{i}': False})
+        return checkpoints
+    
+    def update_checkpoint(self, user):
+        """
+        Adds a checkpoint to a user
+        """
+        username = user['username']
+        try:
+            with self.connection.cursor() as cur:
+                sql = f'''
+                SELECT checkpoint FROM users
+                WHERE username\'{username}\';
+                '''
+                cur.execute(sql)
+                result = cur.fetchone()[0]
+        except psycopg2.DatabaseError:
+            self.connection.rollback()
+        finally:
+            if cur:
+                cur.close()
+        result += 
