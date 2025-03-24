@@ -41,5 +41,14 @@ def checkpoint():
     data = db.update_checkpoint(user)
     return jsonify(data), 200
 
+@app.route('/signin', methods = ['GET', 'POST'])
+def signin():
+    """
+    Takes a login token and returns a user profile
+    """
+    token = request.get_json()
+    data = db.signin(token)
+    return jsonify(data), 200
+
 if __name__ == '__main__':
     app.run()
