@@ -37,7 +37,7 @@ def checkpoint():
     if request.method == 'GET':
         data = db.get_checkpoint(user)
         return jsonify(data), 200
- 
+
     data = db.update_checkpoint(user)
     return jsonify(data), 200
 
