@@ -86,7 +86,7 @@ class DBConnector:
             if cur:
                 cur.close()
         return {'result': 'success'}
-    
+
     def get_checkpoint(self, user):
         """
         Returns all checkpoints user has
@@ -113,14 +113,14 @@ class DBConnector:
                 continue
             checkpoints.update({f'C{i}': False})
         return checkpoints
-    
+
     def update_checkpoint(self, body):
         """
         Adds a checkpoint to a user
         """
         username = body['username']
         checkpoint = body['checkpoint']
-        result = None;
+        result = None
         try:
             with self.connection.cursor() as cur:
                 sql = f'''
@@ -135,7 +135,7 @@ class DBConnector:
             if cur:
                 cur.close()
 
-        if result // pow(2, checkpoint) % 2 != 1 and not result == None:
+        if result // pow(2, checkpoint) % 2 != 1 and not result is None:
             result += pow(2, checkpoint)
             try:
                 with self.connection.cursor() as cur:
@@ -152,7 +152,7 @@ class DBConnector:
                     cur.close()
             return {'result': 'success'}
         return {'result': 'fail'}
-    
+
     def signin(self, login):
         """
         Takes login token and returns user profile
