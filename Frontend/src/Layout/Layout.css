@@ -14,7 +14,19 @@
     z-index: 100;
   }
   
-
+  .footer {
+    width: 100vw;                  
+    position: relative;            
+    left: 50%;                     
+    right: 50%;
+    margin-left: -50vw;            
+    margin-right: -50vw;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
   .logo h1 {
     margin: 0;
     color: white;
@@ -74,7 +86,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: transparent;
+    background: rgba(0, 0, 0, 0.9);
     padding: 30px;
     border-radius: 10px;
     z-index: 200;
@@ -96,3 +108,4 @@
     color: #282c34;
   }
   
+
