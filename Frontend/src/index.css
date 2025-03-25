@@ -9,7 +9,7 @@
 
 body {
   
-  font-family: "Poppins", serif; /*Google Font*/
+  font-family: "Poppins", serif; 
   font-weight: 400;
   font-style: normal;
   display: flex;
@@ -36,6 +36,7 @@ body {
   left: 0;
   background: #343434;
   overflow: hidden;
+  z-index: -1;
 }
 
 .background span {
@@ -503,5 +504,9 @@ body {
 }
 
 
+#root {
+  position: relative; 
+  z-index: 1; /* Higher than the background */
+}
 
 

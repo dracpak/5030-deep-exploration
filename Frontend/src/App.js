@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
-import LoginForm from './Components/LoginForm/LoginForm';
-import RegistrationForm from './Components/RegistrationForm/RegistrationForm';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import LandingPage from './LandingPage/LandingPage';
+import AboutPage from './AboutPage/AboutPage';
+
 
 function App() {
-  const [showLogin, setShowLogin] = useState(true);
-
-  // The App component renders the LoginForm or RegistrationForm based on the value of the showLogin state
   return (
-    <div>
-      {showLogin ? (
-        <LoginForm onFormSwitch={() => setShowLogin(false)} />
-      ) : (
-        <RegistrationForm onFormSwitch={() => setShowLogin(true)} />
-      )}
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<LandingPage />} />
+        <Route path="about" element={<AboutPage />} />
+      </Route>
+    </Routes>
   );
 }
 
