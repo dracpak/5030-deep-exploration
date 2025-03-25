@@ -1,15 +1,72 @@
 /* AboutPage.css */
 
 .about-page {
-    font-family: Arial, sans-serif;
-    color: white;
-    background-color: transparent; 
-    min-height: 100vh;
-    font-family: Arial, sans-serif;
-  }
-  
-  .temp {
-    margin-top: 40px;
-    padding: 20px;
-    text-align: center;
-  }
+  padding: 40px;
+  color: white;
+  background: transparent; 
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin-top: 30px;
+  width: 100%;
+  z-index: 100;
+}
+
+.about-page h2 {
+  font-size: 3.3rem;
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;       
+  border-radius: 10px;
+  width: 1200px;       
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+  margin: auto;
+  margin-bottom: 40px;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 30px;
+  border-radius: 10px;
+  width: 500px; 
+  box-shadow: 0 5px 9px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.card ul {
+  list-style: disc inside;
+  text-align: left;
+  padding-left: 20px;
+}
+
+.card li {
+  font-size: 1.4rem;
+  margin-bottom: 5px;
+}

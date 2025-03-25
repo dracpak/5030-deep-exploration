@@ -60,6 +60,9 @@ const Layout = () => {
           </button>
         </div>
       )}
+      <footer className="footer">
+        <p>&copy; {new Date().getFullYear()} Logos Chatbot. All Rights Reserved.</p>
+      </footer>
     </>
   );
 };
