@@ -42,7 +42,6 @@ class DBConnector:
         finally:
             if cur:
                 cur.close()
-
         salt = result[:32]
         password_hash = result[32:]
         if hashlib.sha256((salt+password).encode()).hexdigest() == password_hash:
@@ -51,11 +50,11 @@ class DBConnector:
                 with self.connection.cursor() as cur:
                     sql = f'''
                     UPDATE users SET token=\'{token}\',
-                    expires = now() + INTERVAL \'6 HOURS\';
+                    expire_date = now() + INTERVAL \'6 HOURS\'
                     WHERE username=\'{username}\';
                     '''
                     cur.execute(sql)
-                    result = cur.fetchone()[0]
+                    self.connection.commit()
             except psycopg2.DatabaseError:
                 self.connection.rollback()
                 result = None
@@ -76,8 +75,8 @@ class DBConnector:
         try:
             with self.connection.cursor() as cur:
                 sql = f'''
-                INSERT INTO users (username, password, email) 
-                VALUES ('{username}', '{password}', '{email}');
+                INSERT INTO users (username, password, email, checkpoint) 
+                VALUES ('{username}', '{password}', '{email}', 0);
                 '''
                 cur.execute(sql)
                 self.connection.commit()
@@ -93,11 +92,12 @@ class DBConnector:
         Returns all checkpoints user has
         """
         username = user['username']
+        result = 0
         try:
             with self.connection.cursor() as cur:
                 sql = f'''
                 SELECT checkpoint FROM users
-                WHERE username\'{username}\';
+                WHERE username=\'{username}\';
                 '''
                 cur.execute(sql)
                 result = cur.fetchone()[0]
@@ -114,58 +114,65 @@ class DBConnector:
             checkpoints.update({f'C{i}': False})
         return checkpoints
     
-    def update_checkpoint(self, username, checkpoint, add: bool = True):
+    def update_checkpoint(self, body):
         """
         Adds a checkpoint to a user
         """
+        username = body['username']
+        checkpoint = body['checkpoint']
+        result = None;
         try:
             with self.connection.cursor() as cur:
                 sql = f'''
                 SELECT checkpoint FROM users
-                WHERE username\'{username}\';
+                WHERE username=\'{username}\';
                 '''
                 cur.execute(sql)
                 result = cur.fetchone()[0]
         except psycopg2.DatabaseError:
             self.connection.rollback()
         finally:
-                    if cur:
-                        cur.close()
-        result += (2*add - 1) * pow(2, checkpoint)
-        try:
-            with self.connection.cursor() as cur:
-                sql = f'''
-                UPDATE users SET checkpoint=f{result}
-                WHERE username\'{username}\';
-                '''
-                cur.execute(sql)
-                self.connection.commit()
-        except psycopg2.DatabaseError:
-            self.connection.rollback()
-        finally:
             if cur:
                 cur.close()
-        return {'result': 'success'}
+
+        if result // pow(2, checkpoint) % 2 != 1 and not result == None:
+            result += pow(2, checkpoint)
+            try:
+                with self.connection.cursor() as cur:
+                    sql = f'''
+                    UPDATE users SET checkpoint={result}
+                    WHERE username=\'{username}\';
+                    '''
+                    cur.execute(sql)
+                    self.connection.commit()
+            except psycopg2.DatabaseError:
+                self.connection.rollback()
+            finally:
+                if cur:
+                    cur.close()
+            return {'result': 'success'}
+        return {'result': 'fail'}
     
     def signin(self, login):
         """
         Takes login token and returns user profile
         """
-        if 'token' not in login:
-            return None
-        token = login['token']
-        try:
-            with self.connection.cursor() as cur:
-                sql = f'''
-                SELECT username, email FROM users
-                WHERE token=\'{token}\'
-                AND expires > now();
-                '''
-                cur.execute(sql)
-                result = cur.fetchone()[0]
-        except psycopg2.DatabaseError:
-            self.connection.rollback()
-        finally:
-            if cur:
-                cur.close()
+        result = None
+        if 'token' in login:
+            token = login['token']
+            try:
+                with self.connection.cursor() as cur:
+                    sql = f'''
+                    SELECT username, email FROM users
+                    WHERE token=\'{token}\'
+                    AND expire_date > now();
+                    '''
+                    cur.execute(sql)
+                    result = cur.fetchone()
+            except psycopg2.DatabaseError:
+                self.connection.rollback()
+            finally:
+                if cur:
+                    cur.close()
+            result = {'username': result[0], 'email': result[1]}
         return result
