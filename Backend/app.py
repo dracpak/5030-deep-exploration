@@ -28,6 +28,28 @@ def register():
     data = db.register(new_user)
     return jsonify(data), 201
 
+@app.route('/checkpoint', methods=['GET', 'POST'])
+def checkpoint():
+    """
+    Sets a new checkpoint or checks if a checkpoint is achieved
+    """
+    user = request.get_json()
+    if request.method == 'GET':
+        data = db.get_checkpoint(user)
+        return jsonify(data), 200
+
+    data = db.update_checkpoint(user)
+    return jsonify(data), 200
+
+@app.route('/signin', methods = ['GET', 'POST'])
+def signin():
+    """
+    Takes a login token and returns a user profile
+    """
+    token = request.get_json()
+    data = db.signin(token)
+    return jsonify(data), 200
+  
 @app.route('/chat', methods=['POST'])
 def chat():
     """
@@ -39,8 +61,6 @@ def chat():
 
     next_step = process_user_choice(step_id, user_choice_index)
     return jsonify(next_step), 200
-
-
 
 if __name__ == '__main__':
     app.run()

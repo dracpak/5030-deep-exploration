@@ -1,0 +1,111 @@
+/* Layout.css */
+
+
+.landing-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 100;
+  }
+  
+  .footer {
+    width: 100vw;                  
+    position: relative;            
+    left: 50%;                     
+    right: 50%;
+    margin-left: -50vw;            
+    margin-right: -50vw;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+  
+  .logo h1 {
+    margin: 0;
+    color: white;
+  }
+  
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 4px 8px;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  
+  .nav-links a:hover {
+    color: #ccc;
+  }
+  
+  .nav-links a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+  }
+  
+  /* Button styling for Login/Register */
+  .nav-links button {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .nav-links button:hover {
+    background: white;
+    color: #282c34;
+  }
+  
+
+  .landing-main {
+    padding-top: 100px; 
+    padding: 40px;
+    min-height: 100vh;
+    text-align: center;
+    background: transparent; 
+  }
+  
+  .form-wrapper {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    z-index: 200;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .close-btn {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+  }
+  
+  .close-btn:hover {
+    background: white;
+    color: #282c34;
+  }
+  
+
