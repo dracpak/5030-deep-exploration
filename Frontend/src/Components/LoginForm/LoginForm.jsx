@@ -4,21 +4,33 @@ import React, { useState } from "react";
 import "./LoginForm.css";
 import { FaUser, FaLock } from "react-icons/fa";
 import { login } from "../../services/authService";
+import { useNavigate } from "react-router-dom";
 
-const LoginForm = ({ onFormSwitch }) => {
+const LoginForm = ({ onFormSwitch, onLoginSuccess }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
 
-  // Function to handle form submission
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     setError(null);
     try {
       const result = await login({ username, password });
       console.log("Login successful:", result);
-      // STILL TODO Handle successful login 
+      
+      if (result.token) {
+        localStorage.setItem("authToken", result.token);
+      }
+      
+      if (onLoginSuccess) {
+        onLoginSuccess(result);
+      }
+      
+      navigate("/");
+
     } catch (err) {
       console.error("Login error:", err);
       setError("Invalid username or password.");
