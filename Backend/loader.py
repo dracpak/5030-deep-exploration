@@ -23,7 +23,7 @@ def load_json(filepath):
     .json loader function
     """
     try:
-        with open(filepath, 'rt') as file:
+        with open(filepath, 'rt', encoding='utf-8') as file:
             data = json.load(file)
             return data
     except FileNotFoundError:
