@@ -1,3 +1,6 @@
+"""
+Chat functions relating to chat bot
+"""
 from loader import load_json
 
 chat_flow = load_json('chat_flow.json')
@@ -15,6 +18,7 @@ def process_user_choice(current_step, user_choice_index):
     current_data = get_chat_step(current_step)
 
     if user_choice_index < 0 or user_choice_index >= len(current_data['options']):
-        return current_data  
+        return current_data
+
     next_step_id = current_data['options'][user_choice_index]['next']
     return get_chat_step(next_step_id)
