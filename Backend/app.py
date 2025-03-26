@@ -49,7 +49,7 @@ def signin():
     token = request.get_json()
     data = db.signin(token)
     return jsonify(data), 200
-  
+
 @app.route('/chat', methods=['POST'])
 def chat():
     """
