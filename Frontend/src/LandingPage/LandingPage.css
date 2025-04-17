@@ -6,12 +6,13 @@
   min-height: 100vh;
 }
 
-
 .temp {
   margin-top: 40px;
   padding: 20px;
   text-align: center;
 }
 
-
+.chat-section {
+  margin-top: 40px;
+}
 
