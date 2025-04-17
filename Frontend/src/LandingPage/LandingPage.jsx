@@ -1,15 +1,16 @@
 import React from 'react';
 import './LandingPage.css';
+import ChatBot from '../ChatBot/ChatBot';
 
 const LandingPage = () => {
   
   return (
     <div className="landing-page">
       <section className="temp">
-        <h2>Welcome to Logos Chatbot</h2>
-        <p>basic Home Page</p>
       </section>
-      {/*landing page sections here */}
+      <section className="chat-section">
+        <ChatBot />
+      </section>
     </div>
   );
 };

@@ -1,0 +1,35 @@
+/*ChatBot.css */
+.chatbot-container {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.8);
+    margin: 20px auto;
+    max-width: 1000px;
+  }
+  
+  .bot-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .options button {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .options button:hover {
+    background: #0056b3;
+  }
+  
+  .options button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  

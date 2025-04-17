@@ -23,7 +23,10 @@ def load_json(filepath):
     .json loader function
     """
     try:
-        with open(filepath, 'rt', encoding='utf-8') as file:
+        # Get the full path to the JSON file
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+        full_path = os.path.join(base_dir, filepath)
+        with open(full_path, 'rt', encoding='utf-8') as file:
             data = json.load(file)
             return data
     except FileNotFoundError:
