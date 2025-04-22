@@ -1,7 +1,7 @@
 """
 Main file for backend, run to set up server
 """
-from bot import process_user_choice
+from bot import get_chat_step, process_user_choice
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 from db_connector import DBConnector
@@ -56,10 +56,15 @@ def chat():
     Process user choice and return next step in chat
     """
     data = request.get_json()
+    dialog_id = data.get('dialog_id', 'dialog1')
     step_id = data.get('step_id', 'start')
     user_choice_index = data.get('choice_index')
 
-    next_step = process_user_choice(step_id, user_choice_index)
+    if user_choice_index is None:
+        # No choice_index → return the starting node
+        next_step = get_chat_step(dialog_id, step_id)
+    else:
+        next_step = process_user_choice(dialog_id, step_id, user_choice_index)
     return jsonify(next_step), 200
 
 if __name__ == '__main__':
