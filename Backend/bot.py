@@ -19,7 +19,7 @@ def process_user_choice(dialog_id: str, current_step: str, user_choice_index: in
     """
     current = get_chat_step(dialog_id, current_step)
     options = current.get('options', [])
-    if not (0 <= user_choice_index < len(options)):
+    if not 0 <= user_choice_index < len(options):
         return current  # Invalid choice,return current step
     next_id = options[user_choice_index]['next']
     return get_chat_step(dialog_id, next_id)
