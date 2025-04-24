@@ -3,248 +3,255 @@
     "start": {
       "bot": "What do you think, does every person have their own purpose in life?",
       "options": [
-        {
-          "text": "Yes, I'm sure that everyone has a unique goal or path that they're destined for.",
-          "next": "step1"
-        },
-        {
-          "text": "I don't think so. Many people just live as they can, without a clear purpose or mission.",
-          "next": "step1"
-        }
+        { "text": "Yes, everyone has a unique path.", "next": "step1" },
+        { "text": "No, many just drift without a clear aim.", "next": "step1" }
       ]
     },
     "step1": {
-      "bot": "Interesting... But if we assume there's no purpose, doesn't that justify passivity and inaction? And if there is a purpose, why are so many people dissatisfied with their lives? Could it be that the idea of a grand purpose is just an illusion?",
+      "bot": "But if there is no grand purpose, does that justify passivity? And if there is, why do so many feel unfulfilled?",
       "options": [
-        {
-          "text": "Yeah, it's strange. It seems like all this talk about 'purpose' often serves as an excuse not to admit that life might just be chaotic.",
-          "next": "step2"
-        },
-        {
-          "text": "No, I think the sense of purpose is a real feeling that motivates people. Without it, we'd fall into complete indifference.",
-          "next": "step2"
-        }
+        { "text": "Maybe 'purpose' is just an excuse for inaction.", "next": "step2" },
+        { "text": "Purpose truly drives us—without it, we’d be lost.", "next": "step2" }
       ]
     },
     "step2": {
-      "bot": "If life has no pre-written script, does that mean we're completely free to create our own story? Or are we still limited by genetics, environment, culture, and other factors?",
+      "bot": "If life is unscripted, are we free to write our own story—or bound by genetics, culture, and circumstance?",
       "options": [
-        {
-          "text": "Maybe we are 'prisoners' of circumstances...",
-          "next": "step3"
-        },
-        {
-          "text": "I tend to believe that we can create meaning ourselves...",
-          "next": "step3"
-        }
+        { "text": "We’re prisoners of our circumstances.", "next": "step3" },
+        { "text": "We shape our own meaning despite limits.", "next": "step3" }
       ]
     },
     "step3": {
-      "bot": "But if we invent meaning and purpose ourselves, doesn't that devalue the whole concept? Doesn't it need to come from above, or be given by nature/God/the universe?",
+      "bot": "If we invent meaning, does that devalue it? Or must purpose come from something greater—nature, God, or the universe?",
       "options": [
-        {
-          "text": "Maybe it really is just a story we tell ourselves... but good stories motivate.",
-          "next": "final"
-        },
-        {
-          "text": "No, I believe there's something greater than just a human invention...",
-          "next": "final"
-        }
+        { "text": "Maybe purpose is a story—but stories still matter.", "next": "step4" },
+        { "text": "I believe purpose must come from beyond ourselves.", "next": "step4" }
+      ]
+    },
+    "step4": {
+      "bot": "How do social roles and expectations shape our sense of purpose? Do they guide us or distract from our true path?",
+      "options": [
+        { "text": "Roles can illuminate, but often they mislead us.", "next": "step5" },
+        { "text": "They provide structure that helps us find meaning.", "next": "step5" }
+      ]
+    },
+    "step5": {
+      "bot": "Is purpose best thought of as a fixed destination or an ongoing journey of choices and actions?",
+      "options": [
+        { "text": "It’s a moving target—always evolving.", "next": "step6" },
+        { "text": "It’s a goal you aim for and achieve.", "next": "step6" }
+      ]
+    },
+    "step6": {
+      "bot": "When personal purpose conflicts with the common good, how should we choose between self and society?",
+      "options": [
+        { "text": "Society’s needs must come first.", "next": "step7" },
+        { "text": "Individual purpose must not be sacrificed.", "next": "step7" }
+      ]
+    },
+    "step7": {
+      "bot": "Can suffering itself become part of one’s purpose, or does true purpose lead away from suffering?",
+      "options": [
+        { "text": "Suffering can forge purpose.", "next": "step8" },
+        { "text": "Purpose should transcend pain.", "next": "step8" }
+      ]
+    },
+    "step8": {
+      "bot": "Does the knowledge of our mortality intensify the search for purpose or make it seem futile?",
+      "options": [
+        { "text": "Mortality makes every moment meaningful.", "next": "step9" },
+        { "text": "It shows purpose might be meaningless.", "next": "step9" }
+      ]
+    },
+    "step9": {
+      "bot": "Does living with purpose guarantee happiness, or can one be purposeful and still feel dissatisfied?",
+      "options": [
+        { "text": "Purpose and happiness don’t always align.", "next": "final" },
+        { "text": "Purpose naturally brings joy.", "next": "final" }
       ]
     },
     "final": {
-      "bot": "It seems like the question of purpose always leaves room for doubt and faith. Perhaps the very attempt to find or create meaning is our shared purpose.",
+      "bot": "Perhaps the very attempt to find or create meaning is itself meaningful. Shall we move on?",
       "options": [
-        {
-          "text": "You're probably right. Maybe the search for meaning is the hidden driver.",
-          "next": "end"
-        },
-        {
-          "text": "I still lean toward the idea that purpose exists independently of our perception.",
-          "next": "end"
-        }
+        { "text": "Yes, continue to the next dialogue", "next": "end" },
+        { "text": "No, I need a moment", "next": "end" }
       ]
     },
     "end": {
-      "bot": "Thanks for the conversation. No final answers, just a little more clarity. Want to restart?",
+      "bot": "Thanks for this dialogue on purpose. Ready for the next topic?",
       "options": [
-        {
-          "text": "Yes, start again",
-          "next": "start"
-        },
-        {
-          "text": "No, exit",
-          "next": "exit"
-        }
+        { "text": "Continue to the next dialogue", "next": "start" }
       ]
     }
   },
   "dialog2": {
     "start": {
-      "bot": "Tell me honestly: if the soul perishes with the body, by what standard can we judge its condition? Or perhaps the very act of caring for it proves its eternity?",
+      "bot": "If the soul perishes with the body, by what standard can we judge its condition? Or does caring for it prove its eternity?",
       "options": [
-        {
-          "text": "If the soul is mortal, caring for it is pointless.",
-          "next": "step1"
-        },
-        {
-          "text": "Caring for the soul is proof of its immortality.",
-          "next": "step1"
-        }
+        { "text": "If it’s mortal, caring is pointless.", "next": "step1" },
+        { "text": "Caring shows it must be immortal.", "next": "step1" }
       ]
     },
     "step1": {
-      "bot": "Interesting… Now tell me: which activities or reflections strengthen the soul, making it ‘healthy’ and steadfast in the face of death?",
+      "bot": "Which activities strengthen the soul—good deeds and justice, or truth-seeking and beauty?",
       "options": [
-        {
-          "text": "Doing good deeds and practicing justice.",
-          "next": "step2"
-        },
-        {
-          "text": "Seeking truth and contemplating beauty.",
-          "next": "step2"
-        }
+        { "text": "Justice and kindness uphold it.", "next": "step2" },
+        { "text": "Contemplating truth and beauty does.", "next": "step2" }
       ]
     },
     "step2": {
-      "bot": "You speak of virtues. But what does the soul’s immortality mean: the preservation of your name and deeds in people’s memory, or something deeper, independent of the body?",
+      "bot": "Does immortality mean preserving our name in memory, or something deeper beyond the body?",
       "options": [
-        {
-          "text": "The remembrance of our actions.",
-          "next": "step3"
-        },
-        {
-          "text": "A spiritual essence free from the body.",
-          "next": "step3"
-        }
+        { "text": "Memory alone secures our legacy.", "next": "step3" },
+        { "text": "A spiritual essence survives independently.", "next": "step3" }
       ]
     },
     "step3": {
-      "bot": "Socrates said, ‘It is easier to destroy the body, but only the soul fed by truth is immortal.’ Which actions in life, do you think, feed the soul with truth?",
+      "bot": "Socrates said only the soul fed by truth is immortal. Which actions feed your soul with truth?",
       "options": [
-        {
-          "text": "Engaging in dialogue and striving for clarity of thought.",
-          "next": "step4"
-        },
-        {
-          "text": "Performing selfless acts and caring for others.",
-          "next": "step4"
-        }
+        { "text": "Dialogue and clarity of thought.", "next": "step4" },
+        { "text": "Selfless acts and care for others.", "next": "step4" }
       ]
     },
     "step4": {
-      "bot": "Finally, imagine you meet your soul after death. What questions will you ask it: about the mistakes you made, your selflessness, or what you failed to accomplish?",
+      "bot": "What would you ask your soul after death—about mistakes, selflessness, or unrealized goals?",
       "options": [
-        {
-          "text": "I will ask about the honesty and sincerity of my actions.",
-          "next": "final"
-        },
-        {
-          "text": "I will learn how much good I brought into the world.",
-          "next": "final"
-        }
+        { "text": "I’d ask about my honesty and integrity.", "next": "step5" },
+        { "text": "I’d ask about the good I failed to do.", "next": "step5" }
+      ]
+    },
+    "step5": {
+      "bot": "Do emotions like love and compassion belong to the soul, and if so, can they endure beyond death?",
+      "options": [
+        { "text": "Yes—love defines the soul’s truth.", "next": "step6" },
+        { "text": "No—emotions are tied to the body.", "next": "step6" }
+      ]
+    },
+    "step6": {
+      "bot": "Different religions teach various afterlives. How do those beliefs shape your view of the soul’s fate?",
+      "options": [
+        { "text": "They offer hope of continuation.", "next": "step7" },
+        { "text": "They’re cultural stories, not proof.", "next": "step7" }
+      ]
+    },
+    "step7": {
+      "bot": "If memory defines identity, does a soul without memory remain the same self?",
+      "options": [
+        { "text": "Without memory, it’s not the same soul.", "next": "step8" },
+        { "text": "Essence persists beyond recollection.", "next": "step8" }
+      ]
+    },
+    "step8": {
+      "bot": "If the soul exists apart from the body, does it lose something essential without its physical form?",
+      "options": [
+        { "text": "It loses the richness of experience.", "next": "step9" },
+        { "text": "It gains freedom from bodily limits.", "next": "step9" }
+      ]
+    },
+    "step9": {
+      "bot": "Does belief in an immortal soul impose a moral responsibility beyond our earthly life?",
+      "options": [
+        { "text": "Yes—it guides our actions here.", "next": "final" },
+        { "text": "No—morality ends with the body.", "next": "final" }
       ]
     },
     "final": {
-      "bot": "This dialogue ends here. Would you like to restart or choose another?",
+      "bot": "Having explored the soul’s journey, which matters more: its memory or its essence?",
       "options": [
-        {
-          "text": "Restart this dialogue",
-          "next": "start"
-        },
-        {
-          "text": "Go to main menu / exit",
-          "next": "exit"
-        }
+        { "text": "Memory preserves identity.", "next": "end" },
+        { "text": "Essence lives beyond memories.", "next": "end" }
       ]
     },
     "end": {
-      "bot": "Thanks for the conversation!",
-      "options": []
+      "bot": "Thanks for exploring the soul’s immortality. Ready for the last topic?",
+      "options": [
+        { "text": "Continue to the next dialogue", "next": "start" }
+      ]
     }
   },
   "dialog3": {
     "start": {
-      "bot": "Sartre claimed, ‘First we exist, then we define our essence.’ In response to the void of being, which would you choose first—conscious freedom or the sense of anxiety from having no predetermined path?",
+      "bot": "Sartre claimed, ‘First we exist, then we define our essence.’ Would you choose freedom or the anxiety of no predetermined path?",
       "options": [
-        {
-          "text": "Freedom—I find meaning there.",
-          "next": "step1"
-        },
-        {
-          "text": "Anxiety—without it I wouldn’t grasp the weight of responsibility.",
-          "next": "step1"
-        }
+        { "text": "Freedom—I find meaning there.", "next": "step1" },
+        { "text": "Anxiety—it reminds me of responsibility.", "next": "step1" }
       ]
     },
     "step1": {
-      "bot": "If freedom is boundless, do you feel crushed by the weight of every choice, as if each one forever stamps your essence?",
+      "bot": "If freedom is boundless, does choice’s weight feel liberating or crushing?",
       "options": [
-        {
-          "text": "Yes—the weight of choice awakens my vigilance and seriousness.",
-          "next": "step2"
-        },
-        {
-          "text": "No—I accept responsibility as the inevitability of my existence.",
-          "next": "step2"
-        }
+        { "text": "It awakens me to life’s seriousness.", "next": "step2" },
+        { "text": "It overwhelms me with possibility.", "next": "step2" }
       ]
     },
     "step2": {
-      "bot": "Sartre described ‘nothingness’ as a space of possibilities. Do you see in it primarily a chance to redefine yourself or an abyss ready to consume you?",
+      "bot": "Is ‘nothingness’ a space to redefine yourself or an abyss that threatens to consume you?",
       "options": [
-        {
-          "text": "A chance—only there is authenticity born.",
-          "next": "step3"
-        },
-        {
-          "text": "An abyss—uncertainty frightens me more than any limits.",
-          "next": "step3"
-        }
+        { "text": "A space—authenticity is born there.", "next": "step3" },
+        { "text": "An abyss—uncertainty frightens me.", "next": "step3" }
       ]
     },
     "step3": {
-      "bot": "We tend to hide in ‘bad faith,’ donning others’ masks. Have you ever felt the urge to excuse your own mistakes by saying ‘that’s just how things are’?",
+      "bot": "We hide in ‘bad faith,’ blaming circumstances. Have you excused your mistakes that way?",
       "options": [
-        {
-          "text": "Yes—easier to shelter under habit than to admit my freedom.",
-          "next": "step4"
-        },
-        {
-          "text": "No—I strive to be honest with myself, even when it’s hard.",
-          "next": "step4"
-        }
+        { "text": "Yes—it’s easier than owning freedom.", "next": "step4" },
+        { "text": "No—I strive for honesty even when hard.", "next": "step4" }
       ]
     },
     "step4": {
-      "bot": "Ultimately: if your life could be summed up by a single decision, which move would best express your essence—a bold leap into the unknown or a deliberate act for the sake of others?",
+      "bot": "If your life were one decision, would you choose a bold leap into the unknown or a deliberate act for others?",
       "options": [
-        {
-          "text": "A leap into the unknown—I exist for freedom.",
-          "next": "final"
-        },
-        {
-          "text": "An act for others—my freedom is to bear responsibility.",
-          "next": "final"
-        }
+        { "text": "A leap—I exist for freedom.", "next": "step5" },
+        { "text": "An act for others—responsibility defines me.", "next": "step5" }
+      ]
+    },
+    "step5": {
+      "bot": "Does defining your essence through choice bring authenticity, or does it trap you in endless self-obsession?",
+      "options": [
+        { "text": "Authenticity—it’s liberating.", "next": "step6" },
+        { "text": "Self-obsession—it can be isolating.", "next": "step6" }
+      ]
+    },
+    "step6": {
+      "bot": "If you reject societal norms in pursuit of authenticity, do you risk alienation or gain deeper self-knowledge?",
+      "options": [
+        { "text": "Alienation but also insight.", "next": "step7" },
+        { "text": "Freedom to be truly myself.", "next": "step7" }
+      ]
+    },
+    "step7": {
+      "bot": "Is anxiety inherent to freedom, or can one embrace choice without fear?",
+      "options": [
+        { "text": "Anxiety is part of being free.", "next": "step8" },
+        { "text": "You can choose fearlessly.", "next": "step8" }
+      ]
+    },
+    "step8": {
+      "bot": "When faced with radical freedom, do you act first and justify later, or reflect deeply before choosing?",
+      "options": [
+        { "text": "Act first—then I learn.", "next": "step9" },
+        { "text": "Reflect first—then I commit.", "next": "step9" }
+      ]
+    },
+    "step9": {
+      "bot": "Does responsibility to others limit freedom, or is it the highest expression of it?",
+      "options": [
+        { "text": "It limits me.", "next": "final" },
+        { "text": "It fulfills me.", "next": "final" }
       ]
     },
     "final": {
-      "bot": "That’s the end of this line of thought. Restart or exit?",
+      "bot": "After exploring freedom’s challenges, which guides you now: bold action or thoughtful reflection?",
       "options": [
-        {
-          "text": "Restart",
-          "next": "start"
-        },
-        {
-          "text": "Exit",
-          "next": "exit"
-        }
+        { "text": "Bold action leads the way.", "next": "end" },
+        { "text": "Thoughtful reflection leads the way.", "next": "end" }
       ]
     },
     "end": {
-      "bot": "Goodbye!",
-      "options": []
+      "bot": "Thank you for this existential journey! Ready to start again?",
+      "options": [
+        { "text": "Restart all dialogues", "next": "start" }
+      ]
     }
   }
 }
