@@ -9,6 +9,7 @@ from db_connector import DBConnector
 app = Flask(__name__)
 CORS(app, origins=['http://localhost:3000', 'http://127.0.0.1:3000', '*'])
 db = DBConnector()
+DIALOG_ORDER = ['dialog1', 'dialog2', 'dialog3']
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -65,6 +66,14 @@ def chat():
         next_step = get_chat_step(dialog_id, step_id)
     else:
         next_step = process_user_choice(dialog_id, step_id, user_choice_index)
+
+    if step_id == 'end':
+        idx = DIALOG_ORDER.index(dialog_id)
+        dialog_id = DIALOG_ORDER[(idx + 1) % len(DIALOG_ORDER)]
+        next_step = get_chat_step(dialog_id, 'start')
+
+    next_step['dialog_id'] = dialog_id
+
     return jsonify(next_step), 200
 
 if __name__ == '__main__':
