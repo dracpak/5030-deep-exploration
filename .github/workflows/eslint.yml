@@ -19,6 +19,8 @@ jobs: # list of things to do
 
       - name: Install Dependencies
         run: npm ci
+        working-directory: Frontend
 
       - name: Code Linting
         run: npm run lint
+        working-directory: Frontend
